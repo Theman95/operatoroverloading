@@ -84,4 +84,25 @@ class Blob:
             return True
         else:
             return False
+            
+b1 = Blob(math.pi,    50., 50., 500, 400, KIND_AI)
+# radius 10
+b2 = Blob(4.*math.pi, 60.1, 50., 600, 500, KIND_PLAYER)
+# radius 10
+b3 = Blob(4.*math.pi, 59.9, 50., 600, 500, KIND_PLAYER)
+# radius 10
+b4 = Blob(4.*math.pi, 50., 60.1, 600, 500, KIND_PLAYER)
+# radius 10
+b5 = Blob(4.*math.pi, 50., 59.9, 600, 500, KIND_PLAYER)
+assert_equal(False, b1 ^ b5)
+assert_equal(True, b1 ^ b3) #this
+assert_equal(False, b1 ^ b4)
+assert_equal(True, b1 ^ b5) #this
+
+assert_equal(False, b2 ^ b1)
+assert_equal(True, b3 ^ b1) #this
+assert_equal(False, b4 ^ b1)
+assert_equal(True, b5 ^ b1) #this
+
+
         
