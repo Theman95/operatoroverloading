@@ -75,7 +75,7 @@ class Blob:
         return self
     
     def __xor__(self,other):
-        d = math.sqrt((self.mX-other.mX)**2 + (self.mY-other.mY)**2)
+        d = math.sqrt((other.mX-self.mX)**2 + (other.mY-self.mY)**2)
         radius_other = math.sqrt(other.mMass/math.pi)
         radius_self = math.sqrt(self.mMass/math.pi)
         larger_variable = max(radius_other,radius_self)
@@ -84,7 +84,8 @@ class Blob:
             return True
         else:
             return False
-            
+        
+
 b1 = Blob(math.pi,    50., 50., 500, 400, KIND_AI)
 # radius 10
 b2 = Blob(4.*math.pi, 60.1, 50., 600, 500, KIND_PLAYER)
@@ -105,4 +106,3 @@ assert_equal(False, b4 ^ b1)
 assert_equal(True, b5 ^ b1) #this
 
 
-        
